@@ -1,25 +1,22 @@
 import * as types from "./actionTypes";
 import * as courseApi from "../../api/courseApi";
-
-// export function createCourse(course) {
-//   //    debugger;
-//   return { type: types.CREATE_COURSE, course }; //object shorthand syntax!!
-// }
+import { beginApiCall, apiCallError } from "./apiStatusActions";
 
 export function loadCoursesSuccess(courses) {
   return { type: types.LOAD_COURSES_SUCCESS, courses };
 }
 
 export function createCourseSuccess(course) {
-    return { type: types.CREATE_COURSE_SUCCESS, course};
+  return { type: types.CREATE_COURSE_SUCCESS, course };
 }
 
 export function updateCourseSuccess(course) {
-    return { type: types.UPDATE_COURSE_SUCCESS, course};
+  return { type: types.UPDATE_COURSE_SUCCESS, course };
 }
 
 export function loadCourses() {
   return function(dispatch) {
+    dispatch(beginApiCall());
     return courseApi
       .getCourses()
       .then(courses => {
@@ -32,7 +29,8 @@ export function loadCourses() {
 }
 
 export function saveCourse(course) {
-  return function(dispatch, getState) {
+  return function(dispatch) {
+    dispatch(beginApiCall());
     return courseApi
       .saveCourse(course)
       .then(savedCourse => {
@@ -41,6 +39,7 @@ export function saveCourse(course) {
           : dispatch(createCourseSuccess(savedCourse));
       })
       .catch(error => {
+        dispatch(apiCallError(error));
         throw error;
       });
   };

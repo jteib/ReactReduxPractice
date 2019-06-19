@@ -1,4 +1,5 @@
-export default {
+export const initialState = {
+    authors: [],
     courses: [],
-    authors: []
+    apiCallsInProgress: 0
 };

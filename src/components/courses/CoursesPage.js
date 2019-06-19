@@ -1,14 +1,18 @@
-import React from "react";
+import React, { Component } from "react";
 import { connect } from "react-redux";
-import { Link } from "react-router-dom";
-import { bindActionCreators } from "redux";
-import PropTypes from "prop-types";
+import { Link, Redirect } from "react-router-dom";
 import * as courseActions from "../../redux/actions/courseActions";
 import * as authorActions from "../../redux/actions/authorActions";
+import PropTypes from "prop-types";
+import { bindActionCreators } from "redux";
 import CourseList from "./CourseList";
+import Spinner from "../common/Spinner";
 
+class CoursesPage extends Component {
+  state = {
+    redirectToAddCoursePage: false
+  };
 
-class CoursesPage extends React.Component {
   componentDidMount() {
     const { courses, authors, actions } = this.props;
     if (courses.length === 0) {
@@ -22,13 +26,31 @@ class CoursesPage extends React.Component {
       });
     }
   }
-
   render() {
     return (
       <>
+        {this.state.redirectToAddCoursePage && (
+          <Redirect to="/course" />
+        ) /*this only works if left side is true, click button below to change true*/}
         <h2>Courses</h2>
-        <CourseList courses={this.props.courses} />
-        <Link to="course" className="btn btn-primary btn-lg">Add a Course</Link>
+        {this.props.loading ? (
+          <Spinner />
+        ) : (
+          <>
+            <button
+              style={{ marginBottom: 20 }}
+              className="btn btn-primary add-course"
+              onClick={() => this.setState({ redirectToAddCoursePage: true })}
+            >
+              Add Course
+            </button>
+
+            <CourseList courses={this.props.courses} />
+            {/* {this.props.courses.map(course => (
+          <div key={course.title}>{course.title}</div> //this no longer needed now that props are passed in above, and list resides in a component
+        ))} */}
+          </>
+        )}
       </>
     );
   }
@@ -37,11 +59,11 @@ class CoursesPage extends React.Component {
 CoursesPage.propTypes = {
   courses: PropTypes.array.isRequired,
   authors: PropTypes.array.isRequired,
-  actions: PropTypes.object.isRequired
+  actions: PropTypes.object.isRequired,
+  loading: PropTypes.bool.isRequired
 };
 
 function mapStateToProps(state) {
-  //       debugger;
   return {
     courses:
       state.authors.length === 0
@@ -52,7 +74,8 @@ function mapStateToProps(state) {
               authorName: state.authors.find(a => a.id === course.authorId).name
             };
           }),
-    authors: state.authors
+    authors: state.authors,
+    loading: state.apiCallsInProgress > 0
   };
 }
 
@@ -68,4 +91,4 @@ function mapDispatchToProps(dispatch) {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(CoursesPage);
+)(CoursesPage); //two function calls here in series
