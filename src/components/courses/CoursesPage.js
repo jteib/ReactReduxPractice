@@ -37,7 +37,7 @@ class CoursesPage extends React.Component {
 CoursesPage.propTypes = {
   courses: PropTypes.array.isRequired,
   authors: PropTypes.array.isRequired,
-  factions: PropTypes.object.isRequired
+  actions: PropTypes.object.isRequired
 };
 
 function mapStateToProps(state) {
@@ -58,7 +58,7 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    factions: {
+    actions: {
       loadCourses: bindActionCreators(courseActions.loadCourses, dispatch),
       loadAuthors: bindActionCreators(authorActions.loadAuthors, dispatch)
     }
