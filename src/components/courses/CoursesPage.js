@@ -1,12 +1,13 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { Link, Redirect } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 import * as courseActions from "../../redux/actions/courseActions";
 import * as authorActions from "../../redux/actions/authorActions";
 import PropTypes from "prop-types";
 import { bindActionCreators } from "redux";
 import CourseList from "./CourseList";
 import Spinner from "../common/Spinner";
+import { toast } from "react-toastify";
 
 class CoursesPage extends Component {
   state = {
@@ -26,6 +27,14 @@ class CoursesPage extends Component {
       });
     }
   }
+
+  handleDeleteCourse = course => {
+    toast.success("Course Deleted"); //optimistic!!
+    this.props.actions.deleteCourse(course).catch(error => {
+    toast.error("Delete Failed!" + error.message, { autoClose: false });
+    });
+  };
+
   render() {
     return (
       <>
@@ -45,10 +54,12 @@ class CoursesPage extends Component {
               Add Course
             </button>
 
-            <CourseList courses={this.props.courses} />
-            {/* {this.props.courses.map(course => (
-          <div key={course.title}>{course.title}</div> //this no longer needed now that props are passed in above, and list resides in a component
-        ))} */}
+            <CourseList onDeleteClick={this.handleDeleteCourse} courses={this.props.courses} />
+
+            {this.props.courses.map(course => (
+              <div key={course.title}>{course.title}</div>
+            ))}
+            
           </>
         )}
       </>
@@ -83,7 +94,8 @@ function mapDispatchToProps(dispatch) {
   return {
     actions: {
       loadCourses: bindActionCreators(courseActions.loadCourses, dispatch),
-      loadAuthors: bindActionCreators(authorActions.loadAuthors, dispatch)
+      loadAuthors: bindActionCreators(authorActions.loadAuthors, dispatch),
+      deleteCourse: bindActionCreators(courseActions.deleteCourse, dispatch)
     }
   };
 }
