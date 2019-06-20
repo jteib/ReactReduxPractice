@@ -71,7 +71,7 @@ const ManageCoursePage = ({
   });
 }
 
-  return authors.length === 0 || courses.length === 0 ? (
+  return {...props.loading ? (
     <Spinner />
   ) : (
     <CourseForm
@@ -82,7 +82,7 @@ const ManageCoursePage = ({
       onSave={handleSave}
       saving={saving}
     />
-  );
+  )};
 };
 
 ManageCoursePage.propTypes = {
@@ -92,7 +92,8 @@ ManageCoursePage.propTypes = {
   loadCourses: PropTypes.func.isRequired,
   loadAuthors: PropTypes.func.isRequired,
   saveCourse: PropTypes.func.isRequired,
-  history: PropTypes.object.isRequired
+  history: PropTypes.object.isRequired,
+  loading: PropTypes.bool.isRequired
 };
 
 export function getCourseBySlug(courses, slug) {
@@ -108,7 +109,8 @@ function mapStateToProps(state, ownProps /*automatically populated by redux*/) {
   return {
     course, //removed newCourse as it's now defined above as const course depending on ternary operation
     courses: state.courses,
-    authors: state.authors
+    authors: state.authors,
+    loading: state.apiCallsInProgress > 0
   };
 }
 
