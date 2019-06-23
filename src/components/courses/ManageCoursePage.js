@@ -55,23 +55,24 @@ const ManageCoursePage = ({
     setErrors(errors);
     //Form is valid if the errors object still has no properties
     return Object.keys(errors).length === 0;
-  }
+  };
 
   function handleSave(event) {
     event.preventDefault();
     if (!formIsValid()) return;
     setSaving(true);
-    saveCourse(course).then(() => {
-      toast.success("Course Saved");
-      history.push("/courses");
-    })
-    .catch(error => {
-      setSaving(false);
-      setErrors({ onSave: error.message });
-  });
-}
+    saveCourse(course)
+      .then(() => {
+        toast.success("Course Saved");
+        history.push("/courses");
+      })
+      .catch(error => {
+        setSaving(false);
+        setErrors({ onSave: error.message });
+      });
+  }
 
-  return {...props.loading ? (
+  return authors.length === 0 && courses.length === 0 ? (
     <Spinner />
   ) : (
     <CourseForm
@@ -82,7 +83,7 @@ const ManageCoursePage = ({
       onSave={handleSave}
       saving={saving}
     />
-  )};
+  );
 };
 
 ManageCoursePage.propTypes = {

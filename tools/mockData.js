@@ -72,9 +72,9 @@ const courses = [
 ];
 
 const authors = [
-  { id: 1, name: "Cory House" },
-  { id: 2, name: "Scott Allen" },
-  { id: 3, name: "Dan Wahlin" }
+  { id: 1, name: "Cory House", slug: "cory-house" },
+  { id: 2, name: "Scott Allen", slug: "scott-allen" },
+  { id: 3, name: "Dan Wahlin", slug: "dan-wahlin" }
 ];
 
 const newCourse = {
@@ -84,9 +84,15 @@ const newCourse = {
   category: ""
 };
 
+const newAuthor = {
+  id: null,
+  name: ""
+};
+
 // Using CommonJS style export so we can consume via Node (without using Babel-node)
 module.exports = {
   newCourse,
+  newAuthor,
   courses,
   authors
 };

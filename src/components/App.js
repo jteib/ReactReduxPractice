@@ -5,7 +5,9 @@ import AboutPage from "./about/AboutPage";
 import Header from "./common/Header";
 import PageNotFound from "./PageNotFound";
 import CoursesPage from "./courses/CoursesPage";
+import AuthorsPage from "./authors/AuthorsPage";
 import ManageCoursePage from "./courses/ManageCoursePage";
+import ManageAuthorPage from "./authors/ManageAuthorPage";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -18,8 +20,10 @@ function App() {
         <Route path="/about" component={AboutPage} />
         <Route path="/courses" component={CoursesPage} />
         <Route path="/course/:slug" component={ManageCoursePage} />{" "}
-        {/*Since only one route in Switch can match, must declare this more specific route first*/}
         <Route path="/course" component={ManageCoursePage} />
+        <Route path="/authors" component={AuthorsPage} />
+        <Route path="/author/:slug" component={ManageAuthorPage} />{" "}
+        <Route path="/author" component={ManageAuthorPage} />
         <Route component={PageNotFound} />
       </Switch>
       <ToastContainer autoClose={3000} hideProgressBar />
