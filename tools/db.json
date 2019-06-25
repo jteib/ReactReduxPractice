@@ -1,46 +1,83 @@
 {
   "courses": [
     {
-      "id": 13,
+      "id": 4,
+      "title": "Building a JavaScript Development Environment",
+      "slug": "javascript-development-environment",
+      "authorId": 1,
+      "category": "JavaScript"
+    },
+    {
+      "id": 10,
+      "title": "Web Component Fundamentals",
+      "slug": "web-components-shadow-dom",
+      "authorId": 1,
+      "category": "HTML5"
+    },
+    {
+      "id": 11,
+      "title": "Red State",
+      "authorId": 5,
+      "category": "javascript",
+      "createdAt": 1561429053192,
+      "slug": "red-state"
+    },
+    {
+      "id": 12,
       "title": "Shameless",
       "authorId": 5,
-      "category": "Stalking",
-      "createdAt": 1561260092890,
+      "category": "Cinematic Art",
+      "createdAt": 1561429430547,
       "slug": "shameless"
     },
     {
       "id": 14,
-      "title": "Red State",
+      "title": "React: The Big Pictures",
+      "authorId": 1,
+      "category": "javascript",
+      "createdAt": 1561429499921,
+      "slug": "react-the-big-pictures"
+    },
+    {
+      "id": 15,
+      "title": "Docker",
+      "authorId": 7,
+      "category": "docker",
+      "createdAt": 1561429514914,
+      "slug": "docker"
+    },
+    {
+      "id": 16,
+      "title": "desperate",
       "authorId": 6,
-      "category": "Fuck this",
-      "createdAt": 1561260543893,
-      "slug": "red-state"
+      "category": "test cat",
+      "createdAt": 1561429542022,
+      "slug": "desperate"
     }
   ],
   "authors": [
     {
-      "id": 5,
-      "name": "Stephen King",
-      "createdAt": 1561259548262,
-      "slug": "stephen-king"
+      "id": 1,
+      "name": "Cory House",
+      "slug": "cory-house"
     },
     {
-      "id": 6,
+      "id": 5,
       "name": "James Eib",
-      "createdAt": 1561260073930,
+      "createdAt": 1561429030629,
       "slug": "james-eib"
     },
     {
-      "id": 7,
+      "id": 6,
       "name": "Cory Lament",
-      "createdAt": 1561260372722,
+      "createdAt": 1561429453170,
       "slug": "cory-lament"
     },
     {
-      "id": 8,
-      "name": "James Eel",
-      "createdAt": 1561260526793,
-      "slug": "james-eel"
+      "id": 7,
+      "name": "Elton Stoneman",
+      "createdAt": 1561429463470,
+      "slug": "elton-stoneman"
     }
   ]
 }

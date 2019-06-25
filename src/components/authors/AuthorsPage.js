@@ -23,10 +23,14 @@ class AuthorsPage extends Component {
   }
 
   handleDeleteAuthor = author => {
-    toast.success("Author Deleted"); //optimistic!!
-    this.props.actions.deleteAuthor(author).catch(error => {
-      toast.error("Delete Failed!" + error.message, { autoClose: false });
-    });
+    if (this.props.courses.find(a => a.authorId === author.id)) {
+      alert("This author still works here. Cannot delete employed authors.");
+    } else {
+      toast.success("Author Deleted"); //optimistic!!
+      this.props.actions.deleteAuthor(author).catch(error => {
+        toast.error("Delete Failed!" + error.message, { autoClose: false });
+      });
+    }
   };
 
   render() {
@@ -65,6 +69,7 @@ class AuthorsPage extends Component {
 
 AuthorsPage.propTypes = {
   authors: PropTypes.array.isRequired,
+  courses: PropTypes.array.isRequired,
   actions: PropTypes.object.isRequired,
   loading: PropTypes.bool.isRequired
 };
@@ -72,6 +77,7 @@ AuthorsPage.propTypes = {
 function mapStateToProps(state) {
   return {
     authors: state.authors.length === 0 ? [] : state.authors,
+    courses: state.courses.length === 0 ? [] : state.courses,
     loading: state.apiCallsInProgress > 0
   };
 }

@@ -69,7 +69,9 @@ const courses = [
     authorId: 1,
     category: "HTML5"
   }
-];
+].sort(function(obj1, obj2) {
+  return obj1.title - obj2.title;
+});
 
 const authors = [
   { id: 1, name: "Cory House", slug: "cory-house" },

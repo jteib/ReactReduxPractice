@@ -16,6 +16,7 @@ class CoursesPage extends Component {
 
   componentDidMount() {
     const { courses, authors, actions } = this.props;
+    debugger;
     if (courses.length === 0) {
       actions.loadCourses().catch(error => {
         alert("loading courses failed" + error);
@@ -29,9 +30,16 @@ class CoursesPage extends Component {
   }
 
   handleDeleteCourse = course => {
+    console.log(this.sortedCourses);
     toast.success("Course Deleted"); //optimistic!!
     this.props.actions.deleteCourse(course).catch(error => {
-    toast.error("Delete Failed!" + error.message, { autoClose: false });
+      toast.error("Delete Failed!" + error.message, { autoClose: false });
+    });
+  };
+
+  handleSortCourse = () => {
+    this.props.actions.loadCoursesByTitle().catch(error => {
+      alert("loading courses failed" + error);
     });
   };
 
@@ -41,7 +49,7 @@ class CoursesPage extends Component {
         {this.state.redirectToAddCoursePage && (
           <Redirect to="/course" />
         ) /*this only works if left side is true, click button below to change true*/}
-        <h2>Courses</h2>
+        <h2>{this.props.courses.length} Courses</h2>
         {this.props.loading ? (
           <Spinner />
         ) : (
@@ -53,13 +61,14 @@ class CoursesPage extends Component {
             >
               Add Course
             </button>
-
-            <CourseList onDeleteClick={this.handleDeleteCourse} courses={this.props.courses} />
-
+            <CourseList
+              onDeleteClick={this.handleDeleteCourse}
+              courses={this.props.courses}
+              onClick={this.handleSortCourse}
+            />
             {this.props.courses.map(course => (
               <div key={course.title}>{course.title}</div>
             ))}
-            
           </>
         )}
       </>
@@ -94,6 +103,10 @@ function mapDispatchToProps(dispatch) {
   return {
     actions: {
       loadCourses: bindActionCreators(courseActions.loadCourses, dispatch),
+      loadCoursesByTitle: bindActionCreators(
+        courseActions.loadCoursesByTitle,
+        dispatch
+      ),
       loadAuthors: bindActionCreators(authorActions.loadAuthors, dispatch),
       deleteCourse: bindActionCreators(courseActions.deleteCourse, dispatch)
     }

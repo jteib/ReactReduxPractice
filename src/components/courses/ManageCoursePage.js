@@ -1,6 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
-import { loadCourses, saveCourse } from "../../redux/actions/courseActions";
+import {
+  loadCourses,
+  saveCourse,
+  loadCoursesByTitle
+} from "../../redux/actions/courseActions";
 import { loadAuthors } from "../../redux/actions/authorActions";
 import PropTypes from "prop-types";
 import CourseForm from "./CourseForm";
@@ -13,6 +17,7 @@ const ManageCoursePage = ({
   authors,
   loadAuthors,
   loadCourses,
+  loadCoursesByTitle,
   saveCourse,
   history,
   ...props //Rest operator-this says "Assign any props I havent destructured above to a variable called props"
@@ -65,6 +70,7 @@ const ManageCoursePage = ({
       .then(() => {
         toast.success("Course Saved");
         history.push("/courses");
+        loadCoursesByTitle();
       })
       .catch(error => {
         setSaving(false);
@@ -117,6 +123,7 @@ function mapStateToProps(state, ownProps /*automatically populated by redux*/) {
 
 const mapDispatchToProps = {
   loadCourses,
+  loadCoursesByTitle,
   loadAuthors,
   saveCourse
 };

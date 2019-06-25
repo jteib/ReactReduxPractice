@@ -6,6 +6,10 @@ export function loadCoursesSuccess(courses) {
   return { type: types.LOAD_COURSES_SUCCESS, courses };
 }
 
+export function loadCoursesByTitleSuccess(courses) {
+  return { type: types.LOAD_COURSES_BY_TITLE_SUCCESS, courses };
+}
+
 export function createCourseSuccess(course) {
   return { type: types.CREATE_COURSE_SUCCESS, course };
 }
@@ -25,6 +29,20 @@ export function loadCourses() {
       .getCourses()
       .then(courses => {
         dispatch(loadCoursesSuccess(courses));
+      })
+      .catch(error => {
+        throw error;
+      });
+  };
+}
+
+export function loadCoursesByTitle() {
+  return function(dispatch) {
+    dispatch(beginApiCall());
+    return courseApi
+      .getCourses()
+      .then(courses => {
+        dispatch(loadCoursesByTitleSuccess(courses));
       })
       .catch(error => {
         throw error;
@@ -52,7 +70,7 @@ export function saveCourse(course) {
 //differences - Immediately dispatching, and not dispatching a beginApiCall
 export function deleteCourse(course) {
   return function(dispatch) {
-  dispatch(deleteCourseOptimistic(course));
-  return courseApi.deleteCourse(course.id);
-  }
+    dispatch(deleteCourseOptimistic(course));
+    return courseApi.deleteCourse(course.id);
+  };
 }
