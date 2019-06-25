@@ -2,7 +2,7 @@
 
 ## Description
 
-\*\*My continuation of React Redux Course. Major "props" to Cory House!! - Pun intended :)
+**My continuation of React Redux Course. Major "props" to Cory House!! - Pun intended :)**
 
 ## Instructions
 
