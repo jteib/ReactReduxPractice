@@ -16,7 +16,7 @@ class CoursesPage extends Component {
 
   componentDidMount() {
     const { courses, authors, actions } = this.props;
-    debugger;
+    //debugger;
     if (courses.length === 0) {
       actions.loadCourses().catch(error => {
         alert("loading courses failed" + error);
@@ -83,17 +83,26 @@ CoursesPage.propTypes = {
   loading: PropTypes.bool.isRequired
 };
 
+// selector function
+export const sortCourses = courses => {
+  courses.sort((a, b) => {
+    return a.title.localeCompare(b.title);
+  });
+};
+
 function mapStateToProps(state) {
+  const courses =
+    state.authors.length === 0
+      ? []
+      : state.courses.map(course => {
+          return {
+            ...course,
+            authorName: state.authors.find(a => a.id === course.authorId).name
+          };
+        });
+  sortCourses(state.courses);
   return {
-    courses:
-      state.authors.length === 0
-        ? []
-        : state.courses.map(course => {
-            return {
-              ...course,
-              authorName: state.authors.find(a => a.id === course.authorId).name
-            };
-          }),
+    courses,
     authors: state.authors,
     loading: state.apiCallsInProgress > 0
   };
@@ -103,10 +112,6 @@ function mapDispatchToProps(dispatch) {
   return {
     actions: {
       loadCourses: bindActionCreators(courseActions.loadCourses, dispatch),
-      loadCoursesByTitle: bindActionCreators(
-        courseActions.loadCoursesByTitle,
-        dispatch
-      ),
       loadAuthors: bindActionCreators(authorActions.loadAuthors, dispatch),
       deleteCourse: bindActionCreators(courseActions.deleteCourse, dispatch)
     }
