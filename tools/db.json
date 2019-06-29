@@ -8,13 +8,6 @@
       "category": "JavaScript"
     },
     {
-      "id": 2,
-      "title": "React: The Big Picture",
-      "slug": "react-big-picture",
-      "authorId": 1,
-      "category": "JavaScript"
-    },
-    {
       "id": 3,
       "title": "Creating Reusable React Components",
       "slug": "react-creating-reusable-components",
@@ -50,6 +43,13 @@
       "category": "Software Practices"
     },
     {
+      "id": 8,
+      "title": "Architecting Applications for the Real World",
+      "slug": "architecting-applications-dotnet",
+      "authorId": 1,
+      "category": "Software Architecture"
+    },
+    {
       "id": 9,
       "title": "Becoming an Outlier: Reprogramming the Developer Mind",
       "slug": "career-reboot-for-developer-mind",
@@ -65,11 +65,19 @@
     },
     {
       "id": 11,
-      "title": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "title": "Red State",
       "authorId": 1,
+      "category": "Cinematic Art",
+      "createdAt": 1561604241231,
+      "slug": "red-state"
+    },
+    {
+      "id": 12,
+      "title": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "authorId": 2,
       "category": "Stalking",
-      "createdAt": 1561588019696,
-      "slug": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+      "createdAt": 1561831003099,
+      "slug": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
     }
   ],
   "authors": [
@@ -77,6 +85,11 @@
       "id": 1,
       "name": "Cory House",
       "slug": "cory-house"
+    },
+    {
+      "id": 2,
+      "name": "Scott Allen",
+      "slug": "scott-allen"
     },
     {
       "id": 3,

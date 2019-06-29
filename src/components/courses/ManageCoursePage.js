@@ -7,6 +7,7 @@ import CourseForm from "./CourseForm";
 import { newCourse } from "../../../tools/mockData";
 import Spinner from "../common/Spinner";
 import { toast } from "react-toastify";
+import { sortCourses } from "./CoursesPage";
 
 const ManageCoursePage = ({
   courses,
@@ -107,12 +108,9 @@ function mapStateToProps(state, ownProps /*automatically populated by redux*/) {
     slug && state.courses.length > 0
       ? getCourseBySlug(state.courses, slug)
       : newCourse;
-  const courses = state.courses.sort((a, b) => {
-    return a.title.localeCompare(b.title);
-  });
   return {
     course, //removed newCourse as it's now defined above as const course depending on ternary operation
-    courses,
+    courses: sortCourses(state.courses),
     authors: state.authors,
     loading: state.apiCallsInProgress > 0
   };
