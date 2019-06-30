@@ -50,7 +50,12 @@ class CoursesPage extends Component {
         {this.state.redirectToAddCoursePage && (
           <Redirect to="/course" />
         ) /*this only works if left side is true, click button below to change true*/}
-        <h2>{this.props.courses.length} Courses</h2>
+        {this.props.courses.length === 1 ? (
+          <h2>{this.props.courses.length} Course</h2>
+        ) : (
+          <h2>{this.props.courses.length} Courses</h2>
+        )}
+
         {this.props.loading ? (
           <Spinner />
         ) : (
@@ -62,11 +67,16 @@ class CoursesPage extends Component {
             >
               Add Course
             </button>
-            <CourseList
-              onDeleteClick={this.handleDeleteCourse}
-              courses={this.props.courses}
-              onClick={this.handleSortCourse}
-            />
+            {this.props.courses.length === 0 ? (
+              <h2>No Courses! Maybe try adding one?</h2>
+            ) : (
+              <CourseList
+                onDeleteClick={this.handleDeleteCourse}
+                courses={this.props.courses}
+                onClick={this.handleSortCourse}
+              />
+            )}
+
             {this.props.courses.map(course => (
               <div key={course.title}>{course.title}</div>
             ))}
