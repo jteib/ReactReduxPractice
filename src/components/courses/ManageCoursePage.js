@@ -108,9 +108,10 @@ function mapStateToProps(state, ownProps /*automatically populated by redux*/) {
     slug && state.courses.length > 0
       ? getCourseBySlug(state.courses, slug)
       : newCourse;
+  const courses = sortCourses(state.courses);
   return {
     course, //removed newCourse as it's now defined above as const course depending on ternary operation
-    courses: sortCourses(state.courses),
+    courses,
     authors: state.authors,
     loading: state.apiCallsInProgress > 0
   };
