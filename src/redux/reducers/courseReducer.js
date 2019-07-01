@@ -12,10 +12,6 @@ export default function courseReducer(state = initialState.courses, action) {
       );
     case types.LOAD_COURSES_SUCCESS:
       return action.courses;
-    case types.LOAD_COURSES_BY_TITLE_SUCCESS:
-      return action.courses.sort((a, b) => {
-        return a.title.localeCompare(b.title);
-      });
     case types.DELETE_COURSE_OPTIMISTIC:
       //returns a new array - no mutating state!!
       return state.filter(course => course.id !== action.course.id);

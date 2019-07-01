@@ -36,20 +36,6 @@ export function loadCourses() {
   };
 }
 
-export function loadCoursesByTitle() {
-  return function(dispatch) {
-    dispatch(beginApiCall());
-    return courseApi
-      .getCourses()
-      .then(courses => {
-        dispatch(loadCoursesByTitleSuccess(courses));
-      })
-      .catch(error => {
-        throw error;
-      });
-  };
-}
-
 export function saveCourse(course) {
   return function(dispatch) {
     dispatch(beginApiCall());
