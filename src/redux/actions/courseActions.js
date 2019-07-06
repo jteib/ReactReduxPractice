@@ -6,10 +6,6 @@ export function loadCoursesSuccess(courses) {
   return { type: types.LOAD_COURSES_SUCCESS, courses };
 }
 
-export function loadCoursesByTitleSuccess(courses) {
-  return { type: types.LOAD_COURSES_BY_TITLE_SUCCESS, courses };
-}
-
 export function createCourseSuccess(course) {
   return { type: types.CREATE_COURSE_SUCCESS, course };
 }

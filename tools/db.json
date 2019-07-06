@@ -3,25 +3,44 @@
     {
       "id": 1,
       "title": "Securing React Apps with Auth0",
+      "slug": "react-auth0-authentication-security",
       "authorId": 1,
-      "category": "React",
-      "createdAt": 1561923824542,
-      "slug": "securing-react-apps-with-auth0"
+      "category": "JavaScript"
     },
     {
       "id": 2,
-      "title": "Addams Family",
-      "authorId": 2,
-      "category": "Cinematic Art",
-      "createdAt": 1561924109222,
-      "slug": "red-state"
+      "title": "React: The Big Picture",
+      "slug": "react-big-picture",
+      "authorId": 1,
+      "category": "JavaScript"
     },
     {
-      "id": 3,
-      "title": "Securing React Apps with Auth1",
+      "id": 4,
+      "title": "Building a JavaScript Development Environment",
+      "slug": "javascript-development-environment",
       "authorId": 1,
-      "category": "Fuck this",
-      "createdAt": 1561928464162,
+      "category": "JavaScript"
+    },
+    {
+      "id": 8,
+      "title": "Architecting Applications for the Real World",
+      "slug": "architecting-applications-dotnet",
+      "authorId": 1,
+      "category": "Software Architecture"
+    },
+    {
+      "id": 10,
+      "title": "Web Component Fundamentals",
+      "slug": "web-components-shadow-dom",
+      "authorId": 1,
+      "category": "HTML5"
+    },
+    {
+      "id": 11,
+      "title": "Securing React Apps with Auth1",
+      "authorId": 5,
+      "category": "test cat",
+      "createdAt": 1562387801631,
       "slug": "securing-react-apps-with-auth1"
     }
   ],
@@ -32,14 +51,21 @@
       "slug": "cory-house"
     },
     {
-      "id": 2,
-      "name": "Scott Allen",
-      "slug": "scott-allen"
-    },
-    {
       "id": 3,
       "name": "Dan Wahlin",
       "slug": "dan-wahlin"
+    },
+    {
+      "id": 4,
+      "name": "James Eib",
+      "createdAt": 1562382735643,
+      "slug": "james-eib"
+    },
+    {
+      "id": 5,
+      "name": "Cory Lament",
+      "createdAt": 1562387787061,
+      "slug": "cory-lament"
     }
   ]
 }
