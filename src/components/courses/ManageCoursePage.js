@@ -29,13 +29,13 @@ const ManageCoursePage = ({ history, match }) => {
     };
   });
 
-  const authors = redux.authors;
+  const { authors, courses } = redux;
   const [course, setCourse] = useState({ ...redux.course });
   const [errors, setErrors] = useState({});
   const [saving, setSaving] = useState(false);
 
   useEffect(() => {
-    if (redux.courses.length === 0) {
+    if (courses.length === 0) {
       dispatch(loadCourses()).catch(error => {
         alert("Loading courses failed" + error);
       });
@@ -43,7 +43,7 @@ const ManageCoursePage = ({ history, match }) => {
       setCourse({ course });
     }
 
-    if (redux.authors.length === 0) {
+    if (authors.length === 0) {
       dispatch(loadAuthors()).catch(error => {
         alert("Loading authors failed" + error);
       });
@@ -62,9 +62,9 @@ const ManageCoursePage = ({ history, match }) => {
     const { title, authorId, category } = course;
     const errors = {};
 
-    if (!course.title) errors.title = "Title is required.";
-    if (!course.authorId) errors.author = "Author is required.";
-    if (!course.category) errors.category = "Category is required.";
+    if (!title) errors.title = "Title is required.";
+    if (!authorId) errors.author = "Author is required.";
+    if (!category) errors.category = "Category is required.";
 
     setErrors(errors);
     //Form is valid if the errors object still has no properties
@@ -86,7 +86,7 @@ const ManageCoursePage = ({ history, match }) => {
       });
   }
 
-  return redux.authors.length === 0 && redux.courses.length === 0 ? (
+  return authors.length === 0 && courses.length === 0 ? (
     <Spinner />
   ) : (
     <CourseForm
