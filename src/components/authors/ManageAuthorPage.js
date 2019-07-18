@@ -46,7 +46,7 @@ const ManageAuthorPage = ({
     const { name } = author;
     const errors = {};
 
-    if (!author.name) errors.name = "A name is required.";
+    if (!name) errors.name = "A name is required.";
 
     setErrors(errors);
     //Form is valid if the errors object still has no properties
