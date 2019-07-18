@@ -51,7 +51,8 @@ const CourseList = ({ courses, onDeleteClick, onClick }) => (
 
 CourseList.propTypes = {
   courses: PropTypes.array.isRequired,
-  onDeleteClick: PropTypes.func.isRequired
+  onDeleteClick: PropTypes.func.isRequired,
+  onClick: PropTypes.func.isRequired
 };
 
 export default CourseList;
