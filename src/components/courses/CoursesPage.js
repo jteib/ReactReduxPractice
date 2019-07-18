@@ -8,7 +8,6 @@ import { bindActionCreators } from "redux";
 import CourseList from "./CourseList";
 import Spinner from "../common/Spinner";
 import { toast } from "react-toastify";
-import { clone } from "@babel/types";
 
 class CoursesPage extends Component {
   state = {
@@ -92,15 +91,6 @@ CoursesPage.propTypes = {
   authors: PropTypes.array.isRequired,
   actions: PropTypes.object.isRequired,
   loading: PropTypes.bool.isRequired
-};
-
-// selector function
-export const sortCourses = courses => {
-  const clonedCourses = [...courses];
-  clonedCourses.sort((a, b) => {
-    return a.title.localeCompare(b.title);
-  });
-  return clonedCourses;
 };
 
 function mapStateToProps(state) {
