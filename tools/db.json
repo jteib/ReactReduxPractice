@@ -2,70 +2,33 @@
   "courses": [
     {
       "id": 1,
-      "title": "Securing React Apps with Auth0",
-      "slug": "react-auth0-authentication-security",
+      "title": "Docker 101",
       "authorId": 1,
-      "category": "JavaScript"
+      "category": "docker",
+      "createdAt": 1564008579652,
+      "slug": "docker-101"
     },
     {
       "id": 2,
-      "title": "React: The Big Picture",
-      "slug": "react-big-picture",
-      "authorId": 1,
-      "category": "JavaScript"
-    },
-    {
-      "id": 4,
-      "title": "Building a JavaScript Development Environment",
-      "slug": "javascript-development-environment",
-      "authorId": 1,
-      "category": "JavaScript"
-    },
-    {
-      "id": 8,
-      "title": "Architecting Applications for the Real World",
-      "slug": "architecting-applications-dotnet",
-      "authorId": 1,
-      "category": "Software Architecture"
-    },
-    {
-      "id": 10,
-      "title": "Web Component Fundamentals",
-      "slug": "web-components-shadow-dom",
-      "authorId": 1,
-      "category": "HTML5"
-    },
-    {
-      "id": 11,
-      "title": "Securing React Apps with Auth1",
-      "authorId": 5,
-      "category": "test cat",
-      "createdAt": 1562387801631,
-      "slug": "securing-react-apps-with-auth1"
+      "title": "Securing React Apps with Auth0",
+      "authorId": 2,
+      "category": "javascript",
+      "createdAt": 1564008646502,
+      "slug": "securing-react-apps-with-auth0"
     }
   ],
   "authors": [
     {
       "id": 1,
+      "name": "Elton Stoneman",
+      "createdAt": 1564008532521,
+      "slug": "elton-stoneman"
+    },
+    {
+      "id": 2,
       "name": "Cory House",
+      "createdAt": 1564008621428,
       "slug": "cory-house"
-    },
-    {
-      "id": 3,
-      "name": "Dan Wahlin",
-      "slug": "dan-wahlin"
-    },
-    {
-      "id": 4,
-      "name": "James Eib",
-      "createdAt": 1562382735643,
-      "slug": "james-eib"
-    },
-    {
-      "id": 5,
-      "name": "Cory Lament",
-      "createdAt": 1562387787061,
-      "slug": "cory-lament"
     }
   ]
 }

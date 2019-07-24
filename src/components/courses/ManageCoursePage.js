@@ -22,7 +22,7 @@ const ManageCoursePage = ({ history, match }) => {
         ? getCourseBySlug(state.courses, slug)
         : newCourse;
     return {
-      course, //removed newCourse as it's now defined above as const course depending on ternary operation
+      course,
       courses: state.courses,
       authors: state.authors,
       loading: state.apiCallsInProgress > 0
@@ -39,8 +39,6 @@ const ManageCoursePage = ({ history, match }) => {
       dispatch(loadCourses()).catch(error => {
         alert("Loading courses failed" + error);
       });
-    } else {
-      setCourse({ course });
     }
 
     if (authors.length === 0) {
@@ -51,10 +49,10 @@ const ManageCoursePage = ({ history, match }) => {
   }, [course]);
 
   function handleChange(event) {
-    const { name, value } = event.target; //destructuring here
+    const { name, value } = event.target;
     setCourse(prevCourse => ({
       ...prevCourse,
-      [name]: name === "authorId" ? parseInt(value, 10) : value //this is equivalent to whatever part of course changed. I.E. course.title
+      [name]: name === "authorId" ? parseInt(value, 10) : value
     }));
   }
 
