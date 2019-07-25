@@ -37,12 +37,6 @@ class CoursesPage extends Component {
     });
   };
 
-  handleSortCourse = () => {
-    this.props.actions.loadCoursesByTitle().catch(error => {
-      alert("loading courses failed" + error);
-    });
-  };
-
   render() {
     return (
       <>
@@ -72,7 +66,6 @@ class CoursesPage extends Component {
               <CourseList
                 onDeleteClick={this.handleDeleteCourse}
                 courses={this.props.courses}
-                onClick={this.handleSortCourse}
               />
             )}
 
