@@ -18,11 +18,18 @@ const AuthorForm = ({
         </div>
       )}
       <TextInput
-        name="name"
-        label="Name"
-        value={author.name}
+        name="firstName"
+        label="First Name"
+        value={author.firstName}
         onChange={onChange}
-        error={errors.name}
+        error={errors.firstName}
+      />
+      <TextInput
+        name="lastName"
+        label="Last Name"
+        value={author.lastName}
+        onChange={onChange}
+        error={errors.LastName}
       />
 
       <button type="submit" disabled={saving} className="btn btn-primary">

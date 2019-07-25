@@ -10,7 +10,7 @@ export const sortCourses = c => {
 export const sortAuthors = c => {
   const cc = [...c];
   cc.sort((a, b) => {
-    return a.name.localeCompare(b.name);
+    return a.firstName.localeCompare(b.firstName);
   });
   return cc;
 };

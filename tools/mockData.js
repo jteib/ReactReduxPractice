@@ -74,9 +74,24 @@ const courses = [
 });
 
 const authors = [
-  { id: 1, name: "Cory House", slug: "cory-house" },
-  { id: 2, name: "Scott Allen", slug: "scott-allen" },
-  { id: 3, name: "Dan Wahlin", slug: "dan-wahlin" }
+  {
+    id: 1,
+    firstName: "Cory",
+    lastName: "House",
+    slug: "cory-house"
+  },
+  {
+    id: 2,
+    firstName: "Scott",
+    lastName: "Allen",
+    slug: "scott-allen"
+  },
+  {
+    id: 3,
+    firstName: "Dan",
+    lastName: "Wahlin",
+    slug: "dan-wahlin"
+  }
 ];
 
 const newCourse = {
@@ -88,7 +103,8 @@ const newCourse = {
 
 const newAuthor = {
   id: null,
-  name: ""
+  firstName: "",
+  lastName: ""
 };
 
 // Using CommonJS style export so we can consume via Node (without using Babel-node)

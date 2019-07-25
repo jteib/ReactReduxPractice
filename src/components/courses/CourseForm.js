@@ -34,7 +34,7 @@ const CourseForm = ({
         defaultOption="Select Author"
         options={authors.map(author => ({
           value: author.id,
-          text: author.name
+          text: author.firstName.concat(" ", author.lastName)
         }))}
         onChange={onChange}
         error={errors.author}

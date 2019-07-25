@@ -56,7 +56,9 @@ server.post("/authors/", function(req, res, next) {
   if (error) {
     res.status(400).send(error);
   } else {
-    req.body.slug = createSlug(req.body.name); // Generate a slug for new courses.
+    req.body.slug = createSlug(
+      req.body.firstName.concat(" ", req.body.lastName)
+    ); // Generate a slug for new authors.
     next();
   }
 });
@@ -88,6 +90,7 @@ function validateCourse(course) {
 }
 
 function validateAuthor(author) {
-  if (!author.name) return "A name is required.";
+  if (!author.firstName) return "A first name is required.";
+  if (!author.lastName) return "A last name is required.";
   return "";
 }

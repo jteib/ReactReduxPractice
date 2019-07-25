@@ -100,7 +100,12 @@ function mapStateToProps(state) {
       : state.courses.map(course => {
           return {
             ...course,
-            authorName: state.authors.find(a => a.id === course.authorId).name
+            authorName: state.authors
+              .find(a => a.id === course.authorId)
+              .firstName.concat(
+                " ",
+                state.authors.find(a => a.id === course.authorId).lastName
+              )
           };
         });
   return {

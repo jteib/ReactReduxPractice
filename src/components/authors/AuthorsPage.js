@@ -58,7 +58,7 @@ class AuthorsPage extends Component {
             />
 
             {this.props.authors.map(author => (
-              <div key={author.id}>{author.title}</div>
+              <div key={author.id}>{author.name}</div>
             ))}
           </>
         )}
@@ -76,7 +76,15 @@ AuthorsPage.propTypes = {
 
 function mapStateToProps(state) {
   return {
-    authors: state.authors.length === 0 ? [] : state.authors,
+    authors:
+      state.authors.length === 0
+        ? []
+        : state.authors.map(author => {
+            return {
+              ...author,
+              name: author.firstName.concat(" ", author.lastName)
+            };
+          }),
     courses: state.courses.length === 0 ? [] : state.courses,
     loading: state.apiCallsInProgress > 0
   };
