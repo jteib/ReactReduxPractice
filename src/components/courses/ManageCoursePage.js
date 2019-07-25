@@ -5,6 +5,7 @@ import { loadAuthors } from "../../redux/actions/authorActions";
 import PropTypes from "prop-types";
 import CourseForm from "./CourseForm";
 import { newCourse } from "../../../tools/mockData";
+import { getBySlug } from "../../redux/reducers/Selectors";
 import Spinner from "../common/Spinner";
 import { toast } from "react-toastify";
 
@@ -12,14 +13,9 @@ const ManageCoursePage = ({ history, match }) => {
   const dispatch = useDispatch();
   const redux = useSelector(state => {
     const slug = match.params.slug;
-
-    function getCourseBySlug(courses, slug) {
-      return courses.find(course => course.slug === slug) || null; //called a selector.  It selects data from the Redux store. Could also be placed in courseReducer for re-use. for performance, memoize with reselect.
-    }
-
     const course =
       slug && state.courses.length > 0
-        ? getCourseBySlug(state.courses, slug)
+        ? getBySlug(state.courses, slug)
         : newCourse;
     return {
       course,

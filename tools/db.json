@@ -50,13 +50,6 @@
       "category": "Software Practices"
     },
     {
-      "id": 8,
-      "title": "Architecting Applications for the Real World",
-      "slug": "architecting-applications-dotnet",
-      "authorId": 1,
-      "category": "Software Architecture"
-    },
-    {
       "id": 9,
       "title": "Becoming an Outlier: Reprogramming the Developer Mind",
       "slug": "career-reboot-for-developer-mind",
@@ -94,15 +87,8 @@
       "id": 4,
       "firstName": "James",
       "lastName": "Eib",
-      "createdAt": 1564026593236,
+      "createdAt": 1564062244150,
       "slug": "james-eib"
-    },
-    {
-      "id": 5,
-      "firstName": "Elton",
-      "lastName": "Stoneman",
-      "createdAt": 1564026649063,
-      "slug": "elton-stoneman"
     }
   ]
 }

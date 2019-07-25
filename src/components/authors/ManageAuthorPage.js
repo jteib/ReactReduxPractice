@@ -4,6 +4,7 @@ import { loadAuthors, saveAuthor } from "../../redux/actions/authorActions";
 import PropTypes from "prop-types";
 import AuthorForm from "./AuthorForm";
 import { newAuthor } from "../../../tools/mockData";
+import { getBySlug } from "../../redux/reducers/Selectors";
 import Spinner from "../common/Spinner";
 import { toast } from "react-toastify";
 
@@ -11,13 +12,9 @@ const ManageAuthorPage = ({ history, match }) => {
   const dispatch = useDispatch();
   const redux = useSelector(state => {
     const slug = match.params.slug;
-
-    function getAuthorBySlug(authors, slug) {
-      return authors.find(author => author.slug === slug) || null; //called a selector.  It selects data from the Redux store. Could also be placed in courseReducer for re-use. for performance, memoize with reselect.
-    }
     const author =
       slug && state.authors.length > 0
-        ? getAuthorBySlug(state.authors, slug)
+        ? getBySlug(state.authors, slug)
         : newAuthor;
     return {
       author,

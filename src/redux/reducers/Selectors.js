@@ -14,3 +14,7 @@ export const sortAuthors = c => {
   });
   return cc;
 };
+
+export const getBySlug = (objects, slug) => {
+  return objects.find(o => o.slug === slug) || null;
+};
