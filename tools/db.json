@@ -50,6 +50,13 @@
       "category": "Software Practices"
     },
     {
+      "id": 8,
+      "title": "Architecting Applications for the Real World",
+      "slug": "architecting-applications-dotnet",
+      "authorId": 1,
+      "category": "Software Architecture"
+    },
+    {
       "id": 9,
       "title": "Becoming an Outlier: Reprogramming the Developer Mind",
       "slug": "career-reboot-for-developer-mind",
@@ -62,6 +69,14 @@
       "slug": "web-components-shadow-dom",
       "authorId": 1,
       "category": "HTML5"
+    },
+    {
+      "id": 11,
+      "title": "AA for dummies",
+      "authorId": 2,
+      "category": "test cat",
+      "createdAt": 1564155628816,
+      "slug": "aa-for-dummies"
     }
   ],
   "authors": [
@@ -87,8 +102,15 @@
       "id": 4,
       "firstName": "James",
       "lastName": "Eib",
-      "createdAt": 1564062244150,
+      "createdAt": 1564155635857,
       "slug": "james-eib"
+    },
+    {
+      "id": 5,
+      "firstName": "Jon",
+      "lastName": "Papa",
+      "createdAt": 1564155640460,
+      "slug": "jon-papa"
     }
   ]
 }

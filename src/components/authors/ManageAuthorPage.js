@@ -4,7 +4,7 @@ import { loadAuthors, saveAuthor } from "../../redux/actions/authorActions";
 import PropTypes from "prop-types";
 import AuthorForm from "./AuthorForm";
 import { newAuthor } from "../../../tools/mockData";
-import { getBySlug } from "../../redux/reducers/Selectors";
+import { getBySlug } from "../../redux/reducers/selectors";
 import Spinner from "../common/Spinner";
 import { toast } from "react-toastify";
 
